@@ -1,3 +1,4 @@
+//Task 1
 class Book {
     constructor(title, author, ISBN) {
         this.title= title;
@@ -13,5 +14,24 @@ class Book {
     }
     set isAvailable(status){
         this._isAvailable= status;
+    }
+}
+//Task 2 AND Task 5
+class Section {
+    constructor(name) {
+        this.name= name;
+        this.books=[];
+    }
+    addBook(book){
+        this.books.push(book)
+    }
+    getAvailableBooks(){
+        return this.books.filter(book=> book.isAvailable).length;
+    }
+    listBooks(){
+        return this.books.map(book=> `${book.getDetails()}, Available: ${book._isAvailable}`);
+    }
+    calculateTotalBooksAvailable(){
+        return this.getAvailableBooks();
     }
 }
