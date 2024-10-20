@@ -35,3 +35,30 @@ class Section {
         return this.getAvailableBooks();
     }
 }
+//Task 3
+class Patron{
+    constructor(name){
+        this.name= name;
+        this.borrowedBooks=[];
+    }
+    borrowBook(book){
+        if (book.isAvailable){
+            book.isAvailable= true;
+            this.borrowedBooks.push(book);
+            console.log (`${this.name} borrowed: ${book.title}`);
+        } else {
+            console.log (`${book.title} has already been borrowed and is not available.`);
+        }
+    }
+    returnBook(book){
+        if (this.borrowedBooks.includes(book)){
+            book.isAvailable=true;
+            this.borrowedBooks= this.borrowedBooks.filter(b=> b!==book);
+            console.log(`${this.name}returned: ${book.title}`);
+
+        }else{
+            console.log (`${this.name} does not have ${book.title}.`);
+        }
+        
+    }
+}
