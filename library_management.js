@@ -62,3 +62,18 @@ class Patron{
         
     }
 }
+//Task 4
+class VIPPatron extends Patron{
+    constructor(name,){
+        super (name);
+        this.priority=true;
+    }
+   borrowBook(book){
+    super.borrowBook(book);
+    if (book.isAvailable===false){
+        console.log(`${this.name} has priority`);
+    }
+    }
+}
+
+
